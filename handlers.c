@@ -23,12 +23,12 @@ unsigned char handle_flags(const char *flag, char *index)
 
 	flag_t flags[] = {
 		{'+', PLUS},
-		{' ', SPACE},								
-		{'#', HASH},	
-		{'0', ZERO}'										
+		{' ', SPACE},
+		{'#', HASH},
+		{'0', ZERO}'
 		{'-',NEG},
 		{0, 0}
-	};
+	} ;
 
 	for (i = 0; flag[i]; i++)
 	{
@@ -57,7 +57,7 @@ unsigned char handle_flags(const char *flag, char *index)
  * @index: An index counter for the original format string.
  *
  * Return: If a lenth modifier is matched - its corresponding value.
- *	   Otherwise - 0.
+ * Otherwise - 0.
  */
 unsigned char handle_length(const char *modifier, char *index)
 {
@@ -110,14 +110,14 @@ int handle_width(va_list args, const char *modifier, char *index)
 
 /**
  * handle_precision - Matches a precision modifier with
- *                    its corresponding value.
+ *		      its corresponding value.
  * @args: A va_list of arguments.
  * @modifier: A pointer to a potential precision modifier.
  * @index: An index counter for the original format string.
  *
  * Return: If a precision modifier is matched - its value.
- * 	   If the precision modifier is empty, zero, or negative - 0.
- * 	   Otherwise - -1.
+ *	   If the precision modifier is empty, zero, or negative - 0.
+ *	   Otherwise - -1.
  */
 int handle_precision(va_list args, const char *modifier, char *index)
 {
@@ -130,7 +130,7 @@ int handle_precision(va_list args, const char *modifier, char *index)
 	(*index)++;
 
 	if ((*modifier <= '0' || *modifier > '9') &&
-		 *modifier != '*')
+			*modifier != '*')
 	{
 		if (*modifier == '0')
 			(*index)++;
@@ -159,31 +159,31 @@ int handle_precision(va_list args, const char *modifier, char *index)
 
 /**
  * handle_specifiers - Matches a conversion specifier with
- * 		       a corresponding conversion function.
+ *		       a corresponding conversion function.
  * @specifier: A pointer to a potential conversion specifier
  *
  * Return: If a conversion function is matched - a pointer to the function.
- * 	   Otherwise - NULL.
+ *	   Otherwise - NULL.
  */
 unsigned int (*handle_specifiers(const char *specifier))(va_list, buffer_t *,
 		unsigned char, int, int, unsigned char)
 {
 	int i;
 	converter_t converters[] = {
-		{'c', convert_c},
-		{'s', convert_s},
-		{'d', convert_di},
-		{'i', convert_di},
+		{'c' , convert_c},
+		{'s' , convert_s},
+		{'d' , convert_di},
+		{'i' , convert_di},
 		{'%', convert_percent},
-		{'b', convert_b},
-		{'u', convert_u},
-		{'o', convert_o},
-		{'x', convert_x},
-		{'X', convert_X},
-		{'S', convert_S},
-		{'p', convert_p},
-		{'r', convert_r},
-		{'R', convert_R},
+		{ 'b' , convert_b},
+		{'u' , convert_u},
+		{'o' , convert_o},
+		{'x' , convert_x},
+		{'X' , convert_X},
+		{'S' , convert_S},
+		{'p' , convert_p},
+		{'r' , convert_r},
+		{'R' , convert_R},
 		{0, NULL}
 	};
 
