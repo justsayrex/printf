@@ -25,10 +25,10 @@ unsigned char handle_flags(const char *flag, char *index)
 		{'+', PLUS},
 		{' ', SPACE},
 		{'#', HASH},
-		{'0', ZERO}'
-		{'-',NEG},
+		{'0', ZERO},
+		{'-', NEG},
 		{0, 0}
-	} ;
+	};
 
 	for (i = 0; flag[i]; i++)
 	{
@@ -82,7 +82,7 @@ unsigned char handle_length(const char *modifier, char *index)
  * @index: An index counter for the original format string.
  *
  * Return: If a width modifier is matched - its value.
- * 	   Otherwise - 0.
+ *	   Otherwise - 0.
  */
 int handle_width(va_list args, const char *modifier, char *index)
 {
@@ -170,21 +170,21 @@ unsigned int (*handle_specifiers(const char *specifier))(va_list, buffer_t *,
 {
 	int i;
 	converter_t converters[] = {
-		{'c' , convert_c},
-		{'s' , convert_s},
-		{'d' , convert_di},
-		{'i' , convert_di},
-		{'%', convert_percent},
-		{ 'b' , convert_b},
-		{'u' , convert_u},
-		{'o' , convert_o},
-		{'x' , convert_x},
-		{'X' , convert_X},
-		{'S' , convert_S},
-		{'p' , convert_p},
-		{'r' , convert_r},
-		{'R' , convert_R},
-		{0, NULL}
+	{'c', convert_c},
+	{'s', convert_s},
+	{'d', convert_di},
+	{'i', convert_di},
+	{'%', convert_percent},
+	{'b', convert_b},
+	{'u', convert_u},
+	{'o', convert_o},
+	{'x', convert_x},
+	{'X', convert_X},
+	{'S', convert_S},
+	{'p', convert_p},
+	{'r', convert_r},
+	{'R', convert_R},
+	{0, NULL}
 	};
 
 	for (i = 0; converters[i].func; i++)
