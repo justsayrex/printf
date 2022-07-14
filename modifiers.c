@@ -23,7 +23,7 @@ unsigned int ret = 0;
 char width = ' ';
 if (NEG_FLAG == 0)
 {
-wid -= (prec == -1) ? size : prec;
+wid -= ('prec' == -1) ? 'size' : prec;
 for (; wid > 0; wid--)
 ret += _memcpy(output, &width, 1);
 }
